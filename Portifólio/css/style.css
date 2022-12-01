@@ -1,0 +1,103 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url("../img/fundo.jpeg");
+    background-size: auto;   
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    float: left;
+    color: white;
+    padding: 12px 14px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a.icon {
+    float: left;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  #foto {
+    margin: 10%;
+  }
+
+  #foto img {
+    width: 30%;
+
+  }
+
+  #cor-bg{
+    background-color: #000235;
+  }
+
+  #cor-bg p{
+    color: white;
+  }
+
+  #cor-bg h2{
+    color: white;
+  }
+
+  #cor-bg h3{
+    color: white;
+  }
+
+  #link {
+    margin-top: 10%;
+    position: relative;
+  }
+
+  #link img {
+    padding-bottom: 25%;
+  }
+
+  #link li {
+    list-style: none;
+  } 
+
+  .barra {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+  .skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+  }
+  
+  .html {
+    width: 75%; background-color: green;
+  } 
+  
+  .bt {
+    width: 60%; background-color: blue;
+  } 
+  
+  .js {
+    width: 50%; background-color: #a0150b;
+  }
+
+  .php {
+    width: 30%; background-color: #363535;
+  } 
