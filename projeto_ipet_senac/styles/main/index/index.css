@@ -1,0 +1,106 @@
+.card{
+    background-color: white; 
+    width: 80%;
+     height: 50%;
+     border-radius: 20px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.164);
+     padding: 10px;
+
+}
+
+.foto{
+    padding: 30px;
+    float: left;
+    height: 30%;
+    
+}
+
+.foto1{
+    float: right;
+    padding: 30px;
+}
+
+
+.center1{
+    display: flex;
+    justify-content: center;
+    
+   
+   
+}
+
+.center2{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.card   .subtext1{
+    color: #603683;
+    padding: 20px;
+    font-size: 34px;
+    margin-left: none;
+
+}
+
+.card .text1{
+    color: #603683;
+    margin-right: 10px;
+    padding: 20px;
+    
+}
+
+.card .subtext2{
+   color: #603683;
+   font-size: 34px;
+   
+   padding: 20px;
+}
+
+.card .text2{
+    color: #603683;
+    padding-left: 10px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 740px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .foto{
+        width: 90%;
+       margin:auto ;
+       
+    }
+
+      .card .subtext1{
+        padding-left: 15px;
+        padding-top: 10px ;
+    }
+
+    .card .subtext2{
+        padding-left: 15px;
+        padding-top: 10px ;
+    }
+
+    .foto1{
+        width: 90%;
+       margin:auto;
+    }
+    
+}
+
+@media(max-width: 900px){
+    .foto{
+        display: none;
+
+    }
+
+    .foto1{
+        display: none;
+    }
+}

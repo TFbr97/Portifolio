@@ -1,0 +1,52 @@
+@media screen and (max-width:490px) {
+    
+    .cartao{
+        background-color: #E8ECF4;
+        width: 95%;
+        margin: 3%;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+        text-align: center;
+    }
+    
+    .perfil{
+    
+        clear: both;
+    
+       
+     }
+    
+     .perfil img{
+    
+        width: 100%;
+        border-radius: 15px 15px 0px 0px;
+        height: 300px;
+    
+     }
+    
+     .cartao h1 {
+        font-size: 40pt;
+        padding-bottom: 2%;
+        /*padding-left: 15%;*/
+        color: #613387;
+     }
+    .icon{
+        padding-bottom: 2%;
+        padding-left: 60px;
+        width: 5%;
+     }
+    
+    .conteudo {
+        padding-bottom: 5%;
+        
+    }
+
+    .conteudo span{
+        font-size: 12pt;
+        color:#9A41A6;
+        padding-right:80px;
+
+    }
+    
+
+}
