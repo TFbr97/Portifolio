@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Abr-2023 às 00:51
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.0.25
+-- Tempo de geração: 15/04/2023 às 15:58
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cardapio`
+-- Estrutura para tabela `cardapio`
 --
 
 CREATE TABLE `cardapio` (
@@ -35,7 +35,7 @@ CREATE TABLE `cardapio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `cardapio`
+-- Despejando dados para a tabela `cardapio`
 --
 
 INSERT INTO `cardapio` (`idproduto`, `nome`, `descricao`, `valor`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `cardapio` (`idproduto`, `nome`, `descricao`, `valor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cliente`
+-- Estrutura para tabela `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -59,7 +59,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `cliente`
+-- Despejando dados para a tabela `cliente`
 --
 
 INSERT INTO `cliente` (`idCliente`, `nome`, `telefone`, `email`, `status`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `cliente` (`idCliente`, `nome`, `telefone`, `email`, `status`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `funcionario`
+-- Estrutura para tabela `funcionario`
 --
 
 CREATE TABLE `funcionario` (
@@ -84,37 +84,65 @@ CREATE TABLE `funcionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `funcionario`
+-- Despejando dados para a tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `cpf`, `nome`, `telefone`, `usuario`, `senha`, `status`) VALUES
 (1, '123.456-78', 'Tiago', '(12)12345-6789', 'ti', '123', ''),
 (2, '111.222-55', 'Gustavo', '(12)36549-8778', 'Vasco', 'Vasco', '');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pedido`
+--
+
+CREATE TABLE `pedido` (
+  `idpedido` int(11) NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idfuncionario` int(11) NOT NULL,
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pedido`
+--
+
+INSERT INTO `pedido` (`idpedido`, `idcliente`, `idfuncionario`, `data`) VALUES
+(1, 3, 1, '2023-04-15');
+
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `cardapio`
+-- Índices de tabela `cardapio`
 --
 ALTER TABLE `cardapio`
   ADD PRIMARY KEY (`idproduto`);
 
 --
--- Índices para tabela `cliente`
+-- Índices de tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- Índices para tabela `funcionario`
+-- Índices de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`idfuncionario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Índices de tabela `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`idpedido`),
+  ADD KEY `idcliente` (`idcliente`),
+  ADD KEY `idfuncionario` (`idfuncionario`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -134,6 +162,23 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `funcionario`
   MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idCliente`),
+  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`idfuncionario`) REFERENCES `funcionario` (`idfuncionario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

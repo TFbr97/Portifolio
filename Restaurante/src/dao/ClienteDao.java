@@ -166,6 +166,7 @@ public class ClienteDao {
             while (rs.next()) {
                 
               Cliente cliente = new Cliente();
+              
               cliente.setIdcliente(rs.getInt("idcliente"));
               cliente.setNome(rs.getString("nome"));
               cliente.setTelefone(rs.getString("telefone"));

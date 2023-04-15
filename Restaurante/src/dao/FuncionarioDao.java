@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -142,6 +144,44 @@ public class FuncionarioDao {
         }
             
         }
+    
+    public List<Funcionario> buscafuncionarios(){
+        
+        try{
+            List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+            PreparedStatement stmt = con.prepareStatement("select * from funcionario");
+            
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                
+                Funcionario funcionario = new Funcionario();
+                
+                funcionario.setIdFuncionario(rs.getInt("idfuncionario")); 
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setUsuario(rs.getString("usuario"));
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setStatus(rs.getString("status"));
+                funcionarios.add(funcionario);
+            }
+            
+            return funcionarios;
+            
+        }
+                      
+                       
+
+            
+        
+        
+        catch(SQLException erro){
+            
+            throw new RuntimeException(erro);
+        }
+        
+    }
     
     
     
